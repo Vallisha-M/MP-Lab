@@ -1,0 +1,36 @@
+.MODEL SMALL
+
+.DATA
+ A DB 01H ,02H ,03H ,04H ,05H
+ B DB 11H ,12H ,13H, 14H ,15H
+
+
+
+.CODE
+ MOV AX,@DATA
+ MOV DS,AX
+
+ LEA SI,A
+ LEA DI,B
+
+ MOV CL,05H
+
+ BACK: MOV AL,[SI]
+       XCHG AL,[DI]
+       MOV [SI],AL
+
+    INC SI
+    INC DI
+    LOOP BACK
+
+
+    LEA SI,A
+    LEA DI,B
+
+    MOV BL,[SI]
+    MOV BH,[DI]
+
+
+    MOV AH,4CH
+    INT 21H
+    END
