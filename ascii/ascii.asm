@@ -27,11 +27,11 @@ digit1: add bl,30h
         mov al,03h
         int 10h
 
-        mov ah,02h
-        mov bh,00h
-        mov dh,0ch
-        mov dl,28h
-        int 10h
+        MOV BH,00H
+       MOV DH,00
+       MOV DL,00H
+       MOV AH,02H
+       INT 10H
 
         mov res+2,'$'
         lea dx,res
